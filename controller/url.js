@@ -12,7 +12,8 @@ async function handleCreateUrl(req,res){
         shortUrl: shortUrl,
         clicks:[]
     });
-    res.json({shortUrl: shortUrl});
+    const allUrls = await url.find({});
+    res.render('home',{shortUrl:shortUrl,urls: allUrls});
 }
 
 async function handleRedirectUrl(req,res){
